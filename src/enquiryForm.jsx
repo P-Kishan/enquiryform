@@ -21,7 +21,7 @@ function EnquiryForm() {
   const fetchEnquiries = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8000/api/enquiry/view");
+      const res = await fetch("https://enquiryform-jvp5.onrender.com/api/enquiry/view");
       if (!res.ok) throw new Error("Failed to fetch enquiries");
       const data = await res.json();
       setUsers(data);
@@ -47,7 +47,7 @@ function EnquiryForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8000/api/enquiry/insert", {
+      const res = await fetch("https://enquiryform-jvp5.onrender.com/api/enquiry/insert", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -75,7 +75,7 @@ function EnquiryForm() {
     try {
       setLoading(true);
       const res = await fetch(
-        `http://localhost:8000/api/enquiry/update/${editId}`,
+        `https://enquiryform-jvp5.onrender.com/api/enquiry/update/${editId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -108,7 +108,7 @@ function EnquiryForm() {
     try {
       setLoading(true);
       const res = await fetch(
-        `http://localhost:8000/api/enquiry/delete/${id}`,
+        `https://enquiryform-jvp5.onrender.com/api/enquiry/delete/${id}`,
         { method: "DELETE" }
       );
       if (res.ok) {
